@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Bus, Clock, Navigation, ArrowLeftRight, AlertCircle, RefreshCw } from 'lucide-react';
+import { Bus, Clock, Navigation, ArrowLeftRight, AlertCircle } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { Header } from './Header';
 import { getBusArrivalsForStreet } from '../services/busParser';
