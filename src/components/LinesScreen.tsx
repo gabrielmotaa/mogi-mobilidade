@@ -92,33 +92,33 @@ export const LinesScreen: React.FC = () => {
             {busArrivals.map((bus, idx) => (
               <div
                 key={`${bus.linhaCodigo}-${idx}`}
-                className="bg-white border-2 border-slate-200 hover:border-mogi-blue/40 rounded-2xl p-4 sm:p-5 shadow-sm transition-all flex items-center justify-between gap-3"
+                className="bg-white border-2 border-slate-200 hover:border-mogi-blue/40 rounded-3xl p-5 shadow-sm transition-all flex flex-col gap-3"
               >
-                {/* Left Side: Bus Badge, Name, and Route Via */}
-                <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                  {/* Bus Line Code Box */}
-                  <div className="bg-mogi-blue text-white font-black text-2xl px-3.5 py-3 rounded-2xl shadow-md min-w-[80px] text-center tracking-wider flex-shrink-0">
+                {/* Header Row: Badge Code on Left, Arrival Countdown on Right */}
+                <div className="flex items-center justify-between">
+                  <div className="bg-mogi-blue text-white font-black text-2xl px-4 py-2 rounded-2xl shadow-sm tracking-wider">
                     {bus.linhaCodigo}
                   </div>
 
-                  {/* Destination Name & Via Summary */}
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 leading-snug truncate">
-                      {bus.linhaNome}
-                    </h3>
-                    <p className="text-sm font-semibold text-slate-600 mt-1 truncate">
-                      {bus.viaSummary}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Right Side: Arrival Minutes/Hours Countdown & Scheduled Time */}
-                <div className="text-right flex-shrink-0 pl-2">
-                  <div className="flex items-center gap-1.5 justify-end text-emerald-700 font-black text-xl sm:text-2xl leading-none">
+                  <div className="flex items-center gap-1.5 text-emerald-700 font-black text-2xl">
                     <Clock className="w-6 h-6 text-emerald-600 flex-shrink-0" />
                     <span>{formatRemainingTime(bus.minutosRestantes)}</span>
                   </div>
-                  <span className="text-xs sm:text-sm text-slate-600 font-bold block mt-1.5">
+                </div>
+
+                {/* Middle Row: Full Destination Name (Large, complete text, no truncation!) */}
+                <div className="pt-1">
+                  <h3 className="text-xl font-extrabold text-slate-900 leading-snug break-words">
+                    {bus.linhaNome}
+                  </h3>
+                </div>
+
+                {/* Bottom Row: Via & Scheduled Departure Time */}
+                <div className="flex items-center justify-between text-slate-600 border-t border-slate-100 pt-3 mt-1">
+                  <span className="text-sm font-semibold text-slate-600">
+                    {bus.viaSummary}
+                  </span>
+                  <span className="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-xl">
                     Saída: {bus.horarioSaida}
                   </span>
                 </div>
