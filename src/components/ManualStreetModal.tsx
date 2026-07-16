@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, MapPin, X, Check } from 'lucide-react';
 import { useApp } from '../context/AppContext';
+import { formatStreetName } from '../utils/formatters';
 
 const PRESET_STREETS = [
   'Rua Dr. Deodato Wertheimer',
@@ -85,7 +86,7 @@ export const ManualStreetModal: React.FC = () => {
                     : 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50 font-medium'
                 }`}
               >
-                <span className="text-base truncate">{street}</span>
+                <span className="text-base truncate">{formatStreetName(street)}</span>
                 {isSelected && <Check className="w-5 h-5 text-mogi-blue flex-shrink-0" />}
               </button>
             );

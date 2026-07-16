@@ -3,6 +3,7 @@ import { Bus, Clock, Navigation, ArrowLeftRight, AlertCircle } from 'lucide-reac
 import { useApp } from '../context/AppContext';
 import { Header } from './Header';
 import { getBusArrivalsForStreet } from '../services/busParser';
+import { formatStreetName } from '../utils/formatters';
 
 /**
  * Formata o tempo restante de forma amigável:
@@ -66,7 +67,7 @@ export const LinesScreen: React.FC = () => {
           <Navigation className="w-5 h-5 text-mogi-blue flex-shrink-0" />
           <p className="text-base font-medium truncate">
             Sua localização:{' '}
-            <strong className="text-slate-900 font-bold">{locationState.streetName}</strong>
+            <strong className="text-slate-900 font-bold">{formatStreetName(locationState.streetName)}</strong>
           </p>
         </div>
 

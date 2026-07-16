@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigation, Building2, Home as HomeIcon, Edit3, ArrowRight } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { Header } from './Header';
+import { formatStreetName } from '../utils/formatters';
 
 export const HomeScreen: React.FC = () => {
   const {
@@ -27,7 +28,7 @@ export const HomeScreen: React.FC = () => {
                 Localização Atual
               </p>
               <h2 className="text-lg sm:text-xl font-black text-slate-900 leading-snug break-words mt-0.5">
-                Você está na <span className="text-mogi-blue block">{locationState.streetName}</span>
+                Você está na <span className="text-mogi-blue block">{formatStreetName(locationState.streetName)}</span>
               </h2>
             </div>
           </div>
